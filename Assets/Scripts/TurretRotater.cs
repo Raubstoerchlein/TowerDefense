@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class TurretRotater : MonoBehaviour
 {
-    public Transform target;
-    public CreepWaypointFollower targetComp;
+    private Transform target;
+    private CreepWaypointFollower targetComp;
+
+    [Header("Turret Stats:")]
     public float range = 15f;
-
     public float rotationSpeedFactor = 10f;
-
     public string enemyTag = "enemy";
-
     public int baseDamage = 5;
     public float attackSpeed = 2f;
-    public float fireCountdown;
+
+    private float fireCountdown;
+
     // Start is called before the first frame update
     void Start()
     {
         fireCountdown = 1f / attackSpeed;
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating(nameof(UpdateTarget), 0f, 0.3f);
     }
 
     // Update is called once per frame

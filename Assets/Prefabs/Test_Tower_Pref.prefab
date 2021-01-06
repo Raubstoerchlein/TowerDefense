@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3118506093417188123}
   - component: {fileID: 2083182360065131710}
   - component: {fileID: 4254780250495004788}
+  - component: {fileID: 1384111538280011325}
   m_Layer: 0
   m_Name: Test_Tower_Pref
   m_TagString: Untagged
@@ -79,3 +80,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1384111538280011325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309493836150575521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e283c5f14cc3cf046bd58444eca99229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  targetComp: {fileID: 0}
+  range: 15
+  rotationSpeedFactor: 10
+  enemyTag: enemy
+  baseDamage: 5
+  attackSpeed: 2

@@ -15,6 +15,8 @@ public class CreepWaypointFollower : MonoBehaviour
     Renderer rend;
 
     public int healthPoints = 15;
+    public int creepValue = 5;
+    public int creepDamage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,7 @@ public class CreepWaypointFollower : MonoBehaviour
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
         {
+            PlayerStats.SubtractLives(creepDamage);
             Destroy(gameObject);
             return;
         }
@@ -72,6 +75,7 @@ public class CreepWaypointFollower : MonoBehaviour
         healthPoints -= amount;
         if(healthPoints <= 0)
         {
+            PlayerStats.AddMoney(creepValue);
             Destroy(gameObject);
             return;
         }
