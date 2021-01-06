@@ -5,14 +5,20 @@ using UnityEngine;
 public class TurretRotater : MonoBehaviour
 {
     public Transform target;
+    public CreepWaypointFollower targetComp;
     public float range = 15f;
 
     public float rotationSpeedFactor = 10f;
 
     public string enemyTag = "enemy";
+
+    public int baseDamage = 5;
+    public float attackSpeed = 2f;
+    public float fireCountdown;
     // Start is called before the first frame update
     void Start()
     {
+        fireCountdown = 1f / attackSpeed;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
@@ -39,6 +45,7 @@ public class TurretRotater : MonoBehaviour
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetComp = nearestEnemy.GetComponent<CreepWaypointFollower>();
         }
         else
         {
@@ -56,5 +63,17 @@ public class TurretRotater : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeedFactor).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if (fireCountdown <= 0)
+        {
+            Shoot();
+            fireCountdown = 1f / attackSpeed;
+        }
+        fireCountdown -= Time.deltaTime;
+    }
+
+    void Shoot()
+    {
+        targetComp.Damage(baseDamage);
     }
 }
