@@ -13,7 +13,9 @@ public class CreepWaypointFollower : MonoBehaviour
     private bool isOriginalColor = true;
     private Color originalColor;
     Renderer rend;
-    
+
+    public int healthPoints = 15;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,16 @@ public class CreepWaypointFollower : MonoBehaviour
         {
             rend.material.color = Color.Lerp(Color.blue, originalColor, 1f);
             isOriginalColor = true;
+        }
+    }
+
+    public void Damage(int amount)
+    {
+        healthPoints -= amount;
+        if(healthPoints <= 0)
+        {
+            Destroy(gameObject);
+            return;
         }
     }
 }
