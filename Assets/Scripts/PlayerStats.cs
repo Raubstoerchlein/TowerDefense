@@ -15,43 +15,44 @@ public class PlayerStats : MonoBehaviour
         Money = startMoney;
         Lives = startLives;
     }
-    
-    int GetMoney()
+
+    public static int GetMoney()
     {
         return Money;
     }
 
-    void AddMoney(int amount)
+    public static void AddMoney(int amount)
     {
         Money += amount;
     }
 
-    void SubtractMoney(int amount)
+    public static void SubtractMoney(int amount)
     {
         Money -= amount;
     }
 
-    int GetLives()
+    public static int GetLives()
     {
         return Lives;
     }
 
-    void AddLives(int amount)
+    public static void AddLives(int amount)
     {
         Lives += amount;
-        if(Lives <= 0)
+    }
+
+    public static void SubtractLives(int amount)
+    {
+        Lives -= amount;
+        if (Lives <= 0)
         {
             GameOver();
         }
     }
 
-    void SubtractLives(int amount)
-    {
-        Lives -= amount;
-    }
-
-    void GameOver()
+    public static void GameOver()
     {
         Debug.Log("Game Over"); //do some fance game over stuff!
+        Time.timeScale = 0;
     }
 }

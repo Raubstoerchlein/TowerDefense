@@ -94,3 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   targetDistance: 0.1
+  healthPoints: 15
+  creepValue: 5
+  creepDamage: 1

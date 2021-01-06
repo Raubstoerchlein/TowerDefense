@@ -146,7 +146,6 @@ MonoBehaviour:
   enemyTag: enemy
   baseDamage: 5
   attackSpeed: 2
-  fireCountdown: 0
 --- !u!1 &201819962
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +243,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1384111538280011325, guid: 62796e76a3afb3e4c853cb27e2bfd08d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 62796e76a3afb3e4c853cb27e2bfd08d, type: 3}
 --- !u!1 &453641017
 GameObject:
@@ -499,7 +499,7 @@ MonoBehaviour:
   Test_Creep_Pref: {fileID: 6694730083084308694, guid: 8a5954252070c604a991fdaa2c6af688,
     type: 3}
   SpawnPont: {fileID: 453641018}
-  timeBetweenWaves: 1
+  timeBetweenWaves: 0.1
 --- !u!4 &916840021
 Transform:
   m_ObjectHideFlags: 0
